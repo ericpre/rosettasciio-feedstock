@@ -10,45 +10,78 @@ source:
   sha256: 24c960f9a26441d826b96eda66007a958760b0dc965a11aaf4bc49884916ee05
 
 build:
-  skip: true  # [py<38]
-  script: {{ PYTHON }} -m pip install . -vv
   number: 1
 
-requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
-    - {{ compiler('c') }}
-  host:
-    - python
-    - setuptools >=49.0
-    - wheel
-    - cython
-    - pip
-  run:
-    - python
-    - dask-core >=2021.3.1
-    - python-dateutil
-    - h5py >=2.3
-    - imageio >=2.16
-    - numba >=0.52
-    - numpy >=1.20.0
-    - pint >=0.8
-    - python-box >=6,<7
-    - pyyaml
-    - scipy >=1.5.0
-    - sparse
+outputs:
+  - name: rosettasciio-base
+    build:
+      skip: true  # [py<38]
+    script: install.sh  # [not win]
+    script: install.bat  # [win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - cython                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - python                                 # [build_platform != target_platform]
+      host:
+        - cython
+        - pip
+        - python
+        - setuptools >=49.0
+        - wheel
+      run:
+        - python
+        - dask-core >=2021.3.1
+        - python-dateutil
+        - h5py >=2.3
+        - imageio >=2.16
+        - numba >=0.52
+        - numpy >=1.20.0
+        - pint >=0.8
+        - python-box >=6,<7
+        - pyyaml
+        - scipy >=1.5.0
+        - sparse
+    test:
+      imports:
+        - rsciio
+      commands:
+        - pip check
 
-test:
-  imports:
-    - rsciio
-  commands:
-    - pip check
-    - pytest --pyargs rsciio
-  requires:
-    - pip
-    - pytest-xdist
+  - name: rosettasciio
+    build:
+      skip: true  # [py<38]
+    requirements:
+      host:
+        - python
+      run:
+        - {{ pin_subpackage('rosettasciio-base', exact=True) }}
+        - python
+        # blockfile
+        - scikit-image >=0.18
+        # mrcz
+        - mrcz
+        - blosc
+        # scalebar_export
+        - matplotlib-scalebar
+        - matplotlib >=3.5
+        # tiff
+        - tifffile >=2020.2.16
+        - imagecodecs >=2020.1.31
+        # usid
+        - pyUSID
+        - sidpy !=0.12
+        # zspy
+        - zarr
+    test:
+      imports:
+        - rsciio
+        - pytest --pyargs rsciio
+      requires:
+        - pip
+        - pytest-xdist
+        - pooch
 
 about:
   home: https://hyperspy.org/rosettasciio
