@@ -154,6 +154,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-rosettasciio-green.svg)](https://anaconda.org/conda-forge/rosettasciio) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rosettasciio.svg)](https://anaconda.org/conda-forge/rosettasciio) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rosettasciio.svg)](https://anaconda.org/conda-forge/rosettasciio) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rosettasciio.svg)](https://anaconda.org/conda-forge/rosettasciio) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-rosettasciio--base-green.svg)](https://anaconda.org/conda-forge/rosettasciio-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rosettasciio-base.svg)](https://anaconda.org/conda-forge/rosettasciio-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rosettasciio-base.svg)](https://anaconda.org/conda-forge/rosettasciio-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rosettasciio-base.svg)](https://anaconda.org/conda-forge/rosettasciio-base) |
 
 Installing rosettasciio
 =======================
@@ -165,16 +166,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `rosettasciio` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `rosettasciio, rosettasciio-base` can be installed with `conda`:
 
 ```
-conda install rosettasciio
+conda install rosettasciio rosettasciio-base
 ```
 
 or with `mamba`:
 
 ```
-mamba install rosettasciio
+mamba install rosettasciio rosettasciio-base
 ```
 
 It is possible to list all of the versions of `rosettasciio` available on your platform with `conda`:
