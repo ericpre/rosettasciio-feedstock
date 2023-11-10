@@ -1,5 +1,5 @@
 {% set name = "rosettasciio" %}
-{% set version = "0.1" %}
+{% set version = "0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rosettasciio-{{ version }}.tar.gz
-  sha256: 24c960f9a26441d826b96eda66007a958760b0dc965a11aaf4bc49884916ee05
+  sha256: 4c4beab05fc395663a44c1f3a0163f252efbde9971fbaa411155eb9570539e1c
 
 build:
-  number: 2
+  number: 0
 
 outputs:
   - name: rosettasciio-base
@@ -28,21 +28,17 @@ outputs:
         - cython
         - pip
         - python
-        - setuptools >=49.0
+        - setuptools >=64.0
+        - setuptools-scm>=8
         - wheel
       run:
         - python
         - dask-core >=2021.3.1
         - python-dateutil
-        - h5py >=2.3
-        - imageio >=2.16
-        - numba >=0.52
         - numpy >=1.20.0
         - pint >=0.8
         - python-box >=6,<7
         - pyyaml
-        - scipy >=1.5.0
-        - sparse
     test:
       imports:
         - rsciio
@@ -60,18 +56,27 @@ outputs:
         - python
         # blockfile
         - scikit-image >=0.18
+        # eds-stream
+        - sparse
+        # hdf5
+        - h5py >=2.3
+        # image
+        - imageio >=2.16
+        # Remove once imageio >2.32 is released
+        - pillow <10.1.0
         # mrcz
         - mrcz
         - blosc
         # scalebar_export
         - matplotlib-scalebar
-        - matplotlib >=3.5
+        - matplotlib-base >=3.5
+        # speed
+        - numba >=0.52
         # tiff
         - tifffile >=2020.2.16
         - imagecodecs >=2020.1.31
         # usid
-        - pyUSID
-        - sidpy !=0.12
+        - pyUSID >=0.0.11
         # zspy
         - zarr
     test:
