@@ -34,15 +34,10 @@ outputs:
         - python
         - dask-core >=2021.3.1
         - python-dateutil
-        - h5py >=2.3
-        - imageio >=2.16
-        - numba >=0.52
         - numpy >=1.20.0
         - pint >=0.8
         - python-box >=6,<7
         - pyyaml
-        - scipy >=1.5.0
-        - sparse
     test:
       imports:
         - rsciio
@@ -60,18 +55,27 @@ outputs:
         - python
         # blockfile
         - scikit-image >=0.18
+        # eds-stream
+        - sparse
+        # hdf5
+        - h5py >=2.3
+        # image
+        - imageio >=2.16
+        # Remove once imageio >2.32 is released
+        - pillow <10.1.0
         # mrcz
         - mrcz
         - blosc
         # scalebar_export
         - matplotlib-scalebar
-        - matplotlib >=3.5
+        - matplotlib-base >=3.5
+        # speed
+        - numba >=0.52
         # tiff
         - tifffile >=2020.2.16
         - imagecodecs >=2020.1.31
         # usid
-        - pyUSID
-        - sidpy !=0.12
+        - pyUSID >=0.0.11
         # zspy
         - zarr
     test:
