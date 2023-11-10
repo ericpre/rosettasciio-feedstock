@@ -28,7 +28,8 @@ outputs:
         - cython
         - pip
         - python
-        - setuptools >=49.0
+        - setuptools >=64.0
+        - setuptools-scm>=8
         - wheel
       run:
         - python
