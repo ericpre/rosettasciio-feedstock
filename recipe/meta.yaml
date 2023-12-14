@@ -10,7 +10,7 @@ source:
   sha256: 40a496918b05cbb2dc254bac0ad4f476c9101aacb912e7471900651c943b9152
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: rosettasciio-base
@@ -62,8 +62,6 @@ outputs:
         - h5py >=2.3
         # image
         - imageio >=2.16
-        # Remove once imageio >2.32 is released
-        - pillow <10.1.0
         # mrcz
         - mrcz
         - blosc
