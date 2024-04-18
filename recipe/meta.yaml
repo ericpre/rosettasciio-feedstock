@@ -10,7 +10,7 @@ source:
   sha256: 6d5558026a94fa7f4eb7b3131789b03e0924b5d7503a48cc3571ed4ce9b4ac61
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: rosettasciio-base
@@ -21,6 +21,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - cython                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - python                                 # [build_platform != target_platform]
