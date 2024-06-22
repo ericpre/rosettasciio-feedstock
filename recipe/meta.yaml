@@ -36,9 +36,9 @@ outputs:
         - python
         - dask-core >=2021.3.1
         - python-dateutil
-        - numpy >=1.20.0
+        - numpy >=1.20.0,<2
         - pint >=0.8
-        - python-box >=6,<7
+        - python-box >=6,<8
         - pyyaml
     test:
       imports:
