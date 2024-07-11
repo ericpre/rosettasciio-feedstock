@@ -1,5 +1,5 @@
 {% set name = "rosettasciio" %}
-{% set version = "0.5" %}
+{% set version = "0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/rosettasciio-{{ version }}.tar.gz
-  sha256: d02be652d0a4a5a267c8698f9cf113f2973b4d4b05e6ee6dfadeabd7fc5403a5
+  sha256: 6d7f40d0577b4a1905da147697b64994a4abad84c2f2b4eb6cf00330e0bc01a7
 
 build:
   number: 0
@@ -36,7 +36,7 @@ outputs:
         - python
         - dask-core >=2021.3.1
         - python-dateutil
-        - numpy >=1.20.0,<2
+        - numpy >=1.20.0
         - pint >=0.8
         - python-box >=6,<8
         - pyyaml
@@ -72,8 +72,8 @@ outputs:
         # speed
         - numba >=0.52
         # tiff
-        - tifffile >=2020.2.16
-        - imagecodecs >=2020.1.31
+        - tifffile >=2022.7.28
+        - imagecodecs >=2021.11.20
         # usid
         - pyUSID >=0.0.11
         # zspy
