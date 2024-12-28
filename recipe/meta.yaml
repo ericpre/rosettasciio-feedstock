@@ -64,7 +64,8 @@ outputs:
         # image
         - imageio >=2.16
         # mrcz
-        - mrcz
+        # remove mrcz until it supports numpy 2.0
+        #- mrcz
         - blosc
         # scalebar_export
         - matplotlib-scalebar
