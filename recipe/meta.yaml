@@ -14,8 +14,6 @@ build:
 
 outputs:
   - name: rosettasciio-base
-    build:
-      skip: true  # [py<38]
     script: install.sh  # [not win]
     script: install.bat  # [win]
     requirements:
@@ -47,8 +45,6 @@ outputs:
         - pip check
 
   - name: rosettasciio
-    build:
-      skip: true  # [py<38]
     requirements:
       host:
         - python
