@@ -79,6 +79,10 @@ outputs:
         - pyUSID >=0.0.11
         # zspy
         - zarr
+        # dependencies resolution fails on windows when building
+        # remove when numcodecs pinning is remove in zarr
+        # https://github.com/zarr-developers/numcodecs/pull/657
+        - numcodecs <0.14
     test:
       imports:
         - rsciio
