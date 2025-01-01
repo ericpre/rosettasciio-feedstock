@@ -66,7 +66,7 @@ outputs:
         # mrcz
         # remove mrcz until it supports numpy 2.0
         #- mrcz
-        - blosc
+        #- blosc
         # scalebar_export
         - matplotlib-scalebar
         - matplotlib-base >=3.5
@@ -76,13 +76,13 @@ outputs:
         - tifffile >=2022.7.28
         - imagecodecs >=2021.11.20
         # usid
-        - pyUSID >=0.0.11
+        #- pyUSID >=0.0.11
         # zspy
-        - zarr
+        #- zarr
         # dependencies resolution fails on windows when building
         # remove when numcodecs pinning is remove in zarr
         # https://github.com/zarr-developers/numcodecs/pull/657
-        - numcodecs <0.14
+        #- numcodecs <0.14
     test:
       imports:
         - rsciio
