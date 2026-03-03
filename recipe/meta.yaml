@@ -10,7 +10,7 @@ source:
   sha256: e02575d451e9c3d301fcb68c319ce0728175df9940feff5b09b855e18945a093
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: rosettasciio-base
